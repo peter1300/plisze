@@ -42,3 +42,15 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.hero-bleed {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 100%);
+}
+
+@media (max-width: 1023px) {
+  .hero-bleed {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}

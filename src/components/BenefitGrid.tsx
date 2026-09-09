@@ -5,20 +5,18 @@ const icons = [Ruler, Award, Clock, Shield];
 
 export function BenefitGrid() {
   return (
-    <div className="border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-[1120px] grid-cols-2 md:grid-cols-4">
+    <div className="relative z-10 bg-white">
+      <div className="mx-auto flex max-w-[1120px] flex-wrap items-center gap-x-8 gap-y-4 px-5 py-7 md:justify-between md:px-8 md:py-8">
         {benefits.map((item, i) => {
           const Icon = icons[i];
+          const last = i === benefits.length - 1;
           return (
             <div
               key={item.title}
-              className={`flex items-start gap-3 px-5 py-6 md:px-8 ${i !== 0 ? "border-t border-line md:border-t-0 md:border-l" : ""}`}
+              className={`flex items-center gap-2.5 ${last ? "rounded-full bg-surface px-4 py-2" : ""}`}
             >
-              <Icon size={18} strokeWidth={1.6} className="mt-0.5 shrink-0 text-ink" />
-              <div>
-                <p className="text-[14px] font-medium text-ink">{item.title}</p>
-                <p className="mt-0.5 text-[13px] text-mute">{item.text}</p>
-              </div>
+              <Icon size={18} strokeWidth={1.6} className="shrink-0 text-ink" />
+              <p className="text-[14px] font-medium text-ink">{item.title}</p>
             </div>
           );
         })}

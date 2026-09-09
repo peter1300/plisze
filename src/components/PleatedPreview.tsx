@@ -37,7 +37,7 @@ export function PleatedPreview({
   return (
     <div
       ref={ref}
-      className={`relative select-none overflow-hidden bg-surface ${interactive ? "touch-none cursor-ew-resize" : ""} ${className}`}
+      className={`relative select-none overflow-hidden ${interactive ? "touch-none cursor-ew-resize" : ""} ${className}`}
       onPointerDown={
         interactive
           ? (e) => {

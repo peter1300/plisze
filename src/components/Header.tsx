@@ -53,7 +53,7 @@ export function Header() {
           <ButtonLink
             to="/konfigurator"
             onClick={() => startFresh()}
-            className="hidden md:inline-flex"
+            className="hidden !rounded-full md:inline-flex"
           >
             Árkalkuláció
           </ButtonLink>
