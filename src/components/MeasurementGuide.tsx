@@ -15,13 +15,13 @@ export function MeasurementGuide() {
 
   return (
     <section id="hogyan-merjek" className="scroll-mt-20 bg-white">
-      <div className="mx-auto grid max-w-[1120px] items-start gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="mx-auto grid max-w-[1280px] items-start gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
-          <p className="text-[12px] font-medium tracking-[0.16em] text-mute uppercase">Mérés</p>
-          <h2 className="mt-3 text-[32px] leading-[1.08] font-semibold tracking-[-0.035em] md:text-[40px]">
-            Hogyan mérjek?
+          <p className="text-[12px] font-semibold tracking-[0.18em] text-mute uppercase">Mérés</p>
+          <h2 className="display mt-3 text-[36px] md:text-[48px]">
+            Hogyan <strong>mérjek?</strong>
           </h2>
-          <p className="mt-4 max-w-[420px] text-[16px] leading-relaxed text-mute">
+          <p className="mt-4 max-w-[420px] text-[16px] font-light leading-relaxed text-mute">
             A nyílászáró ritkán tökéletesen derékszögű. Szélességet és magasságot is több helyen mérünk — mindig a legkisebb számot add meg.
           </p>
 
@@ -31,8 +31,8 @@ export function MeasurementGuide() {
                 key={t.id}
                 type="button"
                 onClick={() => setTab(t.id)}
-                className={`h-10 rounded-[10px] px-4 text-[14px] font-medium ${
-                  tab === t.id ? "bg-ink text-white" : "bg-surface text-ink"
+                className={`h-10 rounded-full px-4 text-[12px] font-black tracking-[0.08em] uppercase ${
+                  tab === t.id ? "bg-gold text-ink" : "bg-surface text-ink"
                 }`}
               >
                 {t.label}
@@ -61,7 +61,7 @@ export function MeasurementGuide() {
           </ol>
         </div>
 
-        <div className="relative overflow-hidden rounded-[16px]">
+        <div className="relative overflow-hidden rounded-[28px]">
           <img
             src={tab === "window" ? photos.galleryWindow : photos.measure}
             alt="Nyílászáró mérési pontokkal"

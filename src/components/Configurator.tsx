@@ -48,10 +48,11 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
   const copy = stepCopy[store.step];
   const previewPhoto =
     config.placement === "window"
-      ? photos.galleryWindow
-      : config.placement === "door"
-        ? photos.galleryWhite
-        : photos.demo;
+      ? photos.galleryWhite
+      : photos.heroEmpty;
+  const netPhoto = config.placement === "window" ? undefined : photos.heroNetted;
+  const previewInset =
+    config.placement === "window" ? undefined : { top: 14.5, right: 35.5, bottom: 16.5, left: 40.5 };
 
   const openings = openingModes.filter((o) => o.for.includes(config.productType));
 
@@ -73,13 +74,13 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
       id="konfigurator"
       className={`scroll-mt-20 bg-surface ${standalone ? "min-h-[calc(100svh-4rem)]" : ""}`}
     >
-      <div className="mx-auto grid max-w-[1120px] gap-8 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[0.92fr_1.18fr] lg:gap-12 lg:py-24">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[0.92fr_1.18fr] lg:gap-12 lg:py-24">
         <div>
-          <p className="text-[12px] font-medium tracking-[0.16em] text-mute uppercase">Konfigurátor</p>
-          <h2 className="mt-3 text-[32px] leading-[1.08] font-semibold tracking-[-0.035em] md:text-[40px]">
-            Tervezd meg. Lásd az árat.
+          <p className="text-[12px] font-semibold tracking-[0.18em] text-mute uppercase">Konfigurátor</p>
+          <h2 className="display mt-3 text-[32px] md:text-[44px]">
+            Tervezd meg. <strong>Lásd az árat.</strong>
           </h2>
-          <p className="mt-3 max-w-[420px] text-[15px] leading-relaxed text-mute">
+          <p className="mt-3 max-w-[420px] text-[15px] font-light leading-relaxed text-mute">
             Öt lépés. A jobb oldali előnézet és az ár azonnal követi a választásaidat.
           </p>
 
@@ -92,13 +93,13 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
             </div>
             <div className="h-[3px] overflow-hidden rounded-full bg-line">
               <div
-                className="h-full bg-ink transition-[width] duration-300"
+                className="h-full bg-gold transition-[width] duration-300"
                 style={{ width: `${(store.step / 5) * 100}%` }}
               />
             </div>
           </div>
 
-          <h3 className="text-[22px] font-semibold tracking-[-0.03em]">{copy.title}</h3>
+          <h3 className="text-[22px] font-bold tracking-[-0.03em]">{copy.title}</h3>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -121,8 +122,8 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
                         key={opt.id}
                         type="button"
                         onClick={() => store.setOpening(opt.id as OpeningMode)}
-                        className={`w-full rounded-[12px] border bg-white px-5 py-4 text-left ${
-                          active ? "border-ink" : "border-line"
+                        className={`w-full rounded-[20px] border bg-white px-5 py-4 text-left transition ${
+                          active ? "border-gold shadow-[0_0_0_1px_#ffb00b]" : "border-line hover:border-[#d2d2d7]"
                         }`}
                       >
                         <span className="block text-[16px] font-medium">{opt.name}</span>
@@ -179,22 +180,25 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
           </div>
         </div>
 
-        <div className="relative order-first min-h-[280px] overflow-hidden rounded-[16px] lg:order-last lg:min-h-[560px]">
+        <div className="relative order-first min-h-[280px] overflow-hidden rounded-[28px] lg:order-last lg:min-h-[560px]">
           <PleatedPreview
             photo={previewPhoto}
+            netPhoto={netPhoto}
+            inset={previewInset}
             coverage={store.coverage}
             onCoverageChange={store.setCoverage}
             interactive
+            showFrame={config.placement === "window"}
             colorHex={color.hex}
             className="absolute inset-0 h-full w-full"
           />
-          <div className="absolute right-4 bottom-4 w-[min(100%-2rem,240px)] rounded-[16px] bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+          <div className="absolute right-4 bottom-4 w-[min(100%-2rem,240px)] rounded-[20px] bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
             <p className="text-[12px] leading-snug text-mute">
               {placementLabel(config.placement)} · {productLabel(config.productType)}
               <br />
               {formatSize(config.width, config.height)} · {color.name}
             </p>
-            <p className="mt-3 text-[26px] leading-none font-semibold tracking-[-0.03em]">
+            <p className="mt-3 text-[26px] leading-none font-black tracking-[-0.03em]">
               <AnimatedPrice value={price.total} />
             </p>
             <p className="mt-1 text-[11px] text-mute">ÁFÁ-val</p>
@@ -213,9 +217,9 @@ export function Configurator({ standalone = false }: { standalone?: boolean }) {
             <motion.div
               initial={{ y: 16, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="w-full max-w-[400px] rounded-[16px] bg-white px-8 py-10 text-center"
+              className="w-full max-w-[400px] rounded-[28px] bg-white px-8 py-10 text-center"
             >
-              <p className="text-[26px] font-semibold tracking-tight">A kosárban van.</p>
+              <p className="display text-[28px]">A kosárban <strong>van.</strong></p>
               <p className="mt-3 text-[15px] text-mute">Folytathatod a tervezést, vagy megrendelheted.</p>
               <div className="mt-8 flex flex-col gap-3">
                 <ButtonLink to="/kosar">Tovább a kosárhoz</ButtonLink>

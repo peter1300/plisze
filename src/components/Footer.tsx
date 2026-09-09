@@ -12,19 +12,21 @@ function SocialIcon({
   children: ReactNode;
 }) {
   return (
-    <a href={href} aria-label={label} className="text-ink hover:text-mute">
+    <a href={href} aria-label={label} className="text-white hover:text-gold">
       {children}
     </a>
   );
 }
 
+const linkCls = "text-white/75 hover:text-gold";
+
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-white">
-      <div className="mx-auto grid max-w-[1120px] gap-10 px-5 py-14 md:grid-cols-4 md:px-8 md:py-16">
+    <footer className="bg-ink text-white">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-14 md:grid-cols-4 md:px-8 md:py-16">
         <div>
-          <Logo />
-          <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-mute">
+          <Logo light />
+          <p className="mt-4 max-w-[240px] text-[13px] font-light leading-relaxed text-white/60">
             Kizárólag pliszé szúnyoghálók. Egyedi méretre, ajtóra és ablakra.
           </p>
           <div className="mt-5 flex gap-4">
@@ -48,79 +50,79 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="text-[12px] font-medium tracking-[0.12em] text-mute uppercase">Navigáció</p>
-          <ul className="mt-4 space-y-2.5 text-[14px]">
+          <p className="text-[12px] font-semibold tracking-[0.14em] text-gold uppercase">Navigáció</p>
+          <ul className="mt-4 space-y-2.5 text-[14px] font-light">
             <li>
-              <a href={`${import.meta.env.BASE_URL}#termekek`} className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#termekek`} className={linkCls}>
                 Pliszé szúnyoghálók
               </a>
             </li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}#hogyan-merjek`} className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#hogyan-merjek`} className={linkCls}>
                 Hogyan mérjek?
               </a>
             </li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}#szinek`} className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#szinek`} className={linkCls}>
                 Színek
               </a>
             </li>
             <li>
-              <a href={`${import.meta.env.BASE_URL}#gyik`} className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#gyik`} className={linkCls}>
                 GYIK
               </a>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-[12px] font-medium tracking-[0.12em] text-mute uppercase">Vásárlás</p>
-          <ul className="mt-4 space-y-2.5 text-[14px]">
+          <p className="text-[12px] font-semibold tracking-[0.14em] text-gold uppercase">Vásárlás</p>
+          <ul className="mt-4 space-y-2.5 text-[14px] font-light">
             <li>
-              <Link to="/konfigurator" className="hover:text-mute">
+              <Link to="/konfigurator" className={linkCls}>
                 Árkalkulátor
               </Link>
             </li>
             <li>
-              <Link to="/kosar" className="hover:text-mute">
+              <Link to="/kosar" className={linkCls}>
                 Kosár
               </Link>
             </li>
             <li>
-              <Link to="/aszf" className="hover:text-mute">
+              <Link to="/aszf" className={linkCls}>
                 ÁSZF
               </Link>
             </li>
             <li>
-              <Link to="/szallitas" className="hover:text-mute">
+              <Link to="/szallitas" className={linkCls}>
                 Szállítás és fizetés
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-[12px] font-medium tracking-[0.12em] text-mute uppercase">Kapcsolat</p>
-          <ul className="mt-4 space-y-2.5 text-[14px]">
+          <p className="text-[12px] font-semibold tracking-[0.14em] text-gold uppercase">Kapcsolat</p>
+          <ul className="mt-4 space-y-2.5 text-[14px] font-light">
             <li>
-              <a href="mailto:hello@plisze.hu" className="hover:text-mute">
+              <a href="mailto:hello@plisze.hu" className={linkCls}>
                 hello@plisze.hu
               </a>
             </li>
             <li>
-              <a href="tel:+36305551200" className="hover:text-mute">
+              <a href="tel:+36305551200" className={linkCls}>
                 +36 30 555 1200
               </a>
             </li>
-            <li className="text-mute">Budapest</li>
+            <li className="text-white/50">Budapest</li>
             <li>
-              <Link to="/adatkezeles" className="hover:text-mute">
+              <Link to="/adatkezeles" className={linkCls}>
                 Adatkezelés
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-line">
-        <p className="mx-auto max-w-[1120px] px-5 py-5 text-[12px] text-mute md:px-8">
+      <div className="border-t border-white/10">
+        <p className="mx-auto max-w-[1280px] px-5 py-5 text-[12px] font-light text-white/45 md:px-8">
           © {new Date().getFullYear()} Pliszé. Minden jog fenntartva.
         </p>
       </div>

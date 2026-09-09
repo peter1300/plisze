@@ -1,19 +1,21 @@
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const photos = {
-  hero: asset("photos/hero-terrace.png"),
-  whyOpen: asset("photos/why-open.png"),
-  whyMid: asset("photos/why-mid.png"),
-  whyWide: asset("photos/why-wide.png"),
-  whyQuality: asset("photos/why-quality.png"),
-  mesh: asset("photos/mesh-macro.png"),
-  interior: asset("photos/interior-dining.png"),
-  galleryDusk: asset("photos/gallery-dusk.png"),
-  galleryWhite: asset("photos/gallery-white.png"),
-  galleryWindow: asset("photos/gallery-window.png"),
-  demo: asset("photos/demo-doors.png"),
-  measure: asset("photos/measure-door.png"),
-  consultant: asset("photos/consultant.png"),
+  hero: asset("photos/nivo-hero.png"),
+  heroEmpty: asset("photos/nivo-door-empty.png"),
+  heroNetted: asset("photos/nivo-door-netted.png"),
+  whyOpen: asset("photos/nivo-dining.png"),
+  whyMid: asset("photos/nivo-interior.png"),
+  whyWide: asset("photos/nivo-wide.png"),
+  whyQuality: asset("photos/nivo-mesh.png"),
+  mesh: asset("photos/nivo-mesh.png"),
+  interior: asset("photos/nivo-interior.png"),
+  galleryDusk: asset("photos/nivo-dusk.png"),
+  galleryWhite: asset("photos/nivo-bedroom-window.png"),
+  galleryWindow: asset("photos/nivo-pool-terrace.png"),
+  demo: asset("photos/nivo-door-empty.png"),
+  measure: asset("photos/nivo-interior.png"),
+  consultant: asset("photos/nivo-dining.png"),
 } as const;
 
 export const benefits = [
@@ -28,21 +30,49 @@ export const whyItems = [
     title: "Eltűnik, amikor nincs rá szükség",
     text: "A pliszé háló harmonikaszerűen összecsukódik. Nyitva szinte láthatatlan.",
     image: photos.whyOpen,
+    label: "Nyitva",
   },
   {
     title: "Nem csapódik vissza",
     text: "Nincs rugós tok. A háló ott marad, ahova húzod.",
     image: photos.whyMid,
+    label: "Pontos",
   },
   {
     title: "Akár 4 méteres nyílásra",
     text: "Kétszárnyú kivitelben a két szárny a középvonalban találkozik.",
     image: photos.whyWide,
+    label: "Terasz",
   },
   {
     title: "Alumínium, ami kitart",
     text: "UV-álló háló, precíz keret, 2 év gyártási garancia.",
     image: photos.whyQuality,
+    label: "Anyag",
+  },
+] as const;
+
+export const placements = [
+  {
+    title: "Bejárati ajtó",
+    text: "Nappali és teraszajtó — a háló a tokban eltűnik.",
+    image: photos.interior,
+    href: "/konfigurator",
+    label: "Ajtó",
+  },
+  {
+    title: "Teraszajtó",
+    text: "Széles üvegfelület, egyszárnyú vagy kétszárnyú pliszé.",
+    image: photos.galleryWindow,
+    href: "/konfigurator",
+    label: "Terasz",
+  },
+  {
+    title: "Ablak",
+    text: "Bukó-nyíló vagy fix — fehér és antracit kerettel.",
+    image: asset("photos/nivo-window.png"),
+    href: "/konfigurator",
+    label: "Ablak",
   },
 ] as const;
 

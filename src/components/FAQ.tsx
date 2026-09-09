@@ -11,13 +11,13 @@ export function FAQ() {
 
   return (
     <section id="gyik" className="scroll-mt-20 bg-white">
-      <div className="mx-auto grid max-w-[1120px] items-start gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto grid max-w-[1280px] items-start gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <Reveal>
-            <p className="text-[12px] font-medium tracking-[0.16em] text-mute uppercase">GYIK</p>
-            <h2 className="mt-3 text-[32px] leading-[1.08] font-semibold tracking-[-0.035em] md:text-[40px]">
-              Gyakori kérdések.
-            </h2>
+            <p className="text-[12px] font-semibold tracking-[0.18em] text-mute uppercase">GYIK</p>
+          <h2 className="display mt-3 text-[32px] md:text-[44px]">
+            Gyakori <strong>kérdések.</strong>
+          </h2>
           </Reveal>
           <div className="mt-10 divide-y divide-line border-y border-line">
             {faqs.map((item, i) => {
@@ -56,15 +56,15 @@ export function FAQ() {
         </div>
 
         <Reveal delay={0.08}>
-          <div className="rounded-[16px] bg-surface p-6 md:p-8">
+          <div className="rounded-[28px] bg-ink p-6 text-white md:p-8">
             <img
               src={photos.consultant}
               alt=""
               className="h-16 w-16 rounded-full object-cover"
             />
-            <h3 className="mt-5 text-[22px] font-semibold tracking-[-0.03em]">Kérdésed van?</h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-mute">
-              Mérés, típus, szállítási idő — írjon, mielőtt rendel.
+            <h3 className="mt-5 text-[22px] font-black tracking-[-0.03em]">Kérdésed van?</h3>
+            <p className="mt-2 text-[14px] font-light leading-relaxed text-white/70">
+              Mérés, típus, szállítási idő — írj, mielőtt rendelsz.
             </p>
             <ButtonLink to="/kapcsolat" className="mt-6">
               Kapcsolat

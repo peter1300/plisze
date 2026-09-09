@@ -9,28 +9,25 @@ export function MadeToMeasure() {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-5 pb-20 md:px-8 md:pb-28">
+      <div className="mx-auto max-w-[1280px] px-5 pb-20 md:px-8 md:pb-28">
         <Reveal>
-          <div className="grid overflow-hidden rounded-[16px] bg-surface lg:grid-cols-2">
+          <div className="grid overflow-hidden rounded-[28px] bg-ink text-white lg:grid-cols-2">
             <img
               src={photos.interior}
               alt="Nappali teraszajtóval és pliszé szúnyoghálóval"
-              className="aspect-[16/10] h-full w-full object-cover lg:aspect-auto lg:min-h-[420px]"
+              className="aspect-[16/10] h-full w-full object-cover lg:aspect-auto lg:min-h-[460px]"
             />
-            <div className="flex flex-col justify-center px-8 py-10 md:px-12 md:py-16">
-              <h2 className="text-[32px] leading-[1.08] font-semibold tracking-[-0.035em] md:text-[40px]">
-                Nem raktárról. Pont a te ajtódra.
+            <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-16">
+              <p className="text-[12px] font-semibold tracking-[0.18em] text-gold uppercase">Egyedi méret</p>
+              <h2 className="display mt-3 text-[34px] md:text-[48px]">
+                Nem raktárról. <strong>Pont a te ajtódra.</strong>
               </h2>
-              <p className="mt-4 max-w-[380px] text-[16px] leading-relaxed text-mute">
+              <p className="mt-4 max-w-[400px] text-[16px] font-light leading-relaxed text-white/70">
                 Minden pliszé szúnyoghálót a megadott milliméterek alapján készítünk el. Nincs standard méret, nincs vágás a helyszínen.
               </p>
-              <ButtonLink
-                to="/konfigurator"
-                onClick={() => startFresh()}
-                className="mt-8 w-fit"
-              >
+              <ButtonLink to="/konfigurator" onClick={() => startFresh()} className="mt-8 w-fit">
                 Tervezd meg most
-                <ArrowRight size={16} strokeWidth={1.8} />
+                <ArrowRight size={16} strokeWidth={2.2} />
               </ButtonLink>
             </div>
           </div>

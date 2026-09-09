@@ -1,10 +1,10 @@
 import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
 import { getColor } from "../config/colors";
 import { productLabel } from "../config/products";
 import { formatHuf, formatSize } from "../lib/calculatePrice";
 import { cartTotal, useCartStore } from "../store/useCartStore";
 import type { CheckoutForm } from "../types";
+import { Button, ButtonLink } from "./ui/Button";
 
 const empty: CheckoutForm = {
   name: "",
@@ -39,10 +39,12 @@ export function Checkout() {
   if (items.length === 0 && !orderId) {
     return (
       <div className="mx-auto max-w-[640px] px-5 py-24 text-center">
-        <h1 className="text-[32px] font-semibold">A kosár üres.</h1>
-        <Link to="/konfigurator" className="mt-6 inline-block underline underline-offset-8">
+        <h1 className="display text-[32px] md:text-[40px]">
+          A kosár <strong>üres.</strong>
+        </h1>
+        <ButtonLink to="/konfigurator" className="mt-8">
           Tervezz egy szúnyoghálót
-        </Link>
+        </ButtonLink>
       </div>
     );
   }
@@ -50,14 +52,16 @@ export function Checkout() {
   if (orderId) {
     return (
       <div className="mx-auto max-w-[640px] px-5 py-24 text-center">
-        <p className="text-[13px] tracking-[0.16em] text-mute uppercase">Rendelés rögzítve</p>
-        <h1 className="mt-3 text-[36px] font-semibold tracking-[-0.03em]">Köszönjük.</h1>
-        <p className="mt-4 text-[16px] text-mute">
-          A rendelésed száma <span className="text-ink">{orderId}</span>. Ez egy demó checkout — valós fizetés nincs.
+        <p className="text-[12px] font-semibold tracking-[0.18em] text-mute uppercase">Rendelés rögzítve</p>
+        <h1 className="display mt-3 text-[36px] md:text-[48px]">
+          Köszönjük.
+        </h1>
+        <p className="mt-4 text-[16px] font-light text-mute">
+          A rendelésed száma <span className="font-medium text-ink">{orderId}</span>. Ez egy demó checkout — valós fizetés nincs.
         </p>
-        <Link to="/" className="mt-8 inline-flex h-11 items-center rounded-[12px] bg-ink px-5 text-[15px] font-medium text-white">
+        <ButtonLink to="/" className="mt-8">
           Vissza a főoldalra
-        </Link>
+        </ButtonLink>
       </div>
     );
   }
@@ -79,18 +83,18 @@ export function Checkout() {
   return (
     <div className="mx-auto grid max-w-[1040px] gap-12 px-5 py-12 md:px-8 lg:grid-cols-[1fr_340px]">
       <form onSubmit={submit}>
-        <h1 className="text-[36px] font-semibold tracking-[-0.03em]">Rendelés</h1>
+        <h1 className="display text-[36px] md:text-[48px]">Rendelés</h1>
         <div className="mt-6 mb-10 flex gap-2">
           {[1, 2, 3, 4].map((s) => (
             <button
               key={s}
               type="button"
               onClick={() => setStep(s)}
-              className={`h-1 flex-1 rounded-full ${s <= step ? "bg-ink" : "bg-line"}`}
+              className={`h-1 flex-1 rounded-full ${s <= step ? "bg-gold" : "bg-line"}`}
             />
           ))}
         </div>
-        <p className="mb-8 text-[13px] tracking-[0.14em] text-mute uppercase">
+        <p className="mb-8 text-[12px] font-semibold tracking-[0.14em] text-mute uppercase">
           {step === 1 && "Kapcsolati adatok"}
           {step === 2 && "Szállítás"}
           {step === 3 && "Fizetés"}
@@ -153,7 +157,7 @@ export function Checkout() {
             <button
               type="button"
               onClick={() => set("payment", "card")}
-              className={`w-full rounded-[12px] px-5 py-5 text-left ${form.payment === "card" ? "bg-ink text-white" : "bg-surface"}`}
+              className={`w-full rounded-[20px] px-5 py-5 text-left ${form.payment === "card" ? "bg-ink text-white" : "bg-surface"}`}
             >
               <span className="block text-[16px] font-medium">Bankkártya</span>
               <span className={`mt-1 block text-[13px] ${form.payment === "card" ? "text-white/70" : "text-mute"}`}>
@@ -163,7 +167,7 @@ export function Checkout() {
             <button
               type="button"
               onClick={() => set("payment", "transfer")}
-              className={`w-full rounded-[12px] px-5 py-5 text-left ${form.payment === "transfer" ? "bg-ink text-white" : "bg-surface"}`}
+              className={`w-full rounded-[20px] px-5 py-5 text-left ${form.payment === "transfer" ? "bg-ink text-white" : "bg-surface"}`}
             >
               <span className="block text-[16px] font-medium">Átutalás</span>
               <span className={`mt-1 block text-[13px] ${form.payment === "transfer" ? "text-white/70" : "text-mute"}`}>
@@ -220,17 +224,12 @@ export function Checkout() {
           >
             Vissza
           </button>
-          <button
-            type="submit"
-            className="inline-flex h-11 items-center rounded-[12px] bg-ink px-5 text-[15px] font-medium text-white"
-          >
-            {step < 4 ? "Tovább" : "Megrendelés elküldése"}
-          </button>
+          <Button type="submit">{step < 4 ? "Tovább" : "Megrendelés elküldése"}</Button>
         </div>
       </form>
 
       <aside className="h-fit border-t border-line pt-8 lg:border-t-0 lg:pt-2">
-        <p className="text-[12px] tracking-[0.14em] text-mute uppercase">Rendelésed</p>
+        <p className="text-[12px] font-semibold tracking-[0.14em] text-mute uppercase">Rendelésed</p>
         <ul className="mt-5 space-y-4">
           {items.map((item) => (
             <li key={item.id} className="flex justify-between gap-4 text-[14px]">
@@ -245,7 +244,7 @@ export function Checkout() {
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-[24px] font-semibold">{formatHuf(total)}</p>
+        <p className="mt-6 text-[24px] font-black">{formatHuf(total)}</p>
         <p className="mt-1 text-[12px] text-mute">ÁFÁ-val. Demó rendelés.</p>
       </aside>
     </div>

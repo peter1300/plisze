@@ -19,12 +19,12 @@ export function DimensionInputs({
 
   return (
     <div>
-      <h3 className="text-[13px] font-medium tracking-[0.12em] text-mute uppercase">Méret</h3>
+      <h3 className="text-[13px] font-semibold tracking-[0.12em] text-mute uppercase">Méret</h3>
       <div className="mt-5 grid grid-cols-[1fr_auto] items-start gap-6">
         <div className="space-y-4">
           <label className="block">
             <span className="text-[13px] text-mute">Szélesség</span>
-            <div className="mt-1.5 flex h-11 items-center rounded-[12px] border border-line bg-white px-3">
+            <div className="mt-1.5 flex h-11 items-center rounded-full border border-line bg-white px-4">
               <input
                 type="number"
                 inputMode="numeric"
@@ -39,7 +39,7 @@ export function DimensionInputs({
           </label>
           <label className="block">
             <span className="text-[13px] text-mute">Magasság</span>
-            <div className="mt-1.5 flex h-11 items-center rounded-[12px] border border-line bg-white px-3">
+            <div className="mt-1.5 flex h-11 items-center rounded-full border border-line bg-white px-4">
               <input
                 type="number"
                 inputMode="numeric"

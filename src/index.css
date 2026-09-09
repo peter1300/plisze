@@ -2,12 +2,14 @@
 @import "./styles/tokens.css";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --color-ink: #1d1d1f;
-  --color-mute: #6e6e73;
-  --color-surface: #f5f5f7;
-  --color-line: #e5e5e7;
-  --color-wash: #f5f5f7;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #1a1a1a;
+  --color-mute: #5c5c5c;
+  --color-surface: #f3f3f3;
+  --color-line: #e8e8e8;
+  --color-wash: #f3f3f3;
+  --color-gold: #ffb00b;
+  --color-gold-dark: #e59a00;
   --color-measure: #1f8a7a;
   --ease-out-apple: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -21,15 +23,14 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #1d1d1f;
-  color: #ffffff;
+  background: #ffb00b;
+  color: #1a1a1a;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -43,14 +44,12 @@ input[type="number"] {
   appearance: textfield;
 }
 
-.hero-bleed {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 100%);
+.display {
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
-@media (max-width: 1023px) {
-  .hero-bleed {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
+.display strong {
+  font-weight: 900;
 }

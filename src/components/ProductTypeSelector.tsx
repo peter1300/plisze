@@ -54,8 +54,8 @@ export function ProductTypeSelector({
             key={card.id}
             type="button"
             onClick={() => onChange(card.id)}
-            className={`rounded-[12px] border bg-white px-3 py-5 text-center transition ${
-              selected ? "border-ink" : "border-line hover:border-[#d2d2d7]"
+            className={`rounded-[20px] border bg-white px-3 py-5 text-center transition ${
+              selected ? "border-gold shadow-[0_0_0_1px_#ffb00b]" : "border-line hover:border-[#d2d2d7]"
             }`}
           >
             <card.Icon />

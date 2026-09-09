@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 const variants = {
   primary:
-    "inline-flex h-11 items-center justify-center gap-1.5 rounded-[12px] bg-ink px-5 text-[15px] font-medium text-white transition hover:bg-black",
+    "inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-gold px-5 text-[12px] font-black tracking-[0.08em] uppercase text-ink transition hover:bg-gold-dark",
   secondary:
-    "inline-flex h-11 items-center justify-center gap-1.5 rounded-[12px] border border-[#d2d2d7] bg-white px-5 text-[15px] font-medium text-ink transition hover:bg-surface",
+    "inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-ink px-5 text-[12px] font-black tracking-[0.08em] uppercase text-white transition hover:bg-black",
+  outline:
+    "inline-flex h-11 items-center justify-center gap-1.5 rounded-full border border-line bg-white px-5 text-[12px] font-black tracking-[0.08em] uppercase text-ink transition hover:bg-surface",
+  ghost:
+    "inline-flex h-11 items-center justify-center gap-1.5 rounded-full border border-white/40 bg-white/10 px-5 text-[12px] font-black tracking-[0.08em] uppercase text-white backdrop-blur-sm transition hover:bg-white/20",
 } as const;
 
 type Variant = keyof typeof variants;

@@ -1,76 +1,58 @@
-import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, MapPin, Shield, Ruler, Clock } from "lucide-react";
 import { photos } from "../data/content";
 import { useConfiguratorStore } from "../store/useConfiguratorStore";
-import { BenefitGrid } from "./BenefitGrid";
-import { PleatedPreview } from "./PleatedPreview";
 import { ButtonLink } from "./ui/Button";
+
+const trust = [
+  { Icon: Ruler, label: "Egyedi méretre" },
+  { Icon: Clock, label: "10–14 munkanap" },
+  { Icon: Shield, label: "2 év garancia" },
+];
 
 export function Hero() {
   const startFresh = useConfiguratorStore((s) => s.startFresh);
-  const [coverage, setCoverage] = useState(0.38);
-  const [hint, setHint] = useState(true);
-
-  const onCoverageChange = (value: number) => {
-    setCoverage(value);
-    if (hint) setHint(false);
-  };
 
   return (
-    <section className="overflow-x-hidden bg-white">
-      <div className="relative">
-        <div className="pointer-events-none relative z-[2] mx-auto max-w-[1120px] px-5 pt-10 pb-8 md:px-8 md:pt-16 lg:min-h-[560px] lg:pt-20 lg:pb-12">
-          <div className="pointer-events-auto max-w-[520px]">
-            <p className="text-[12px] font-medium tracking-[0.16em] text-mute uppercase">
-              Tiszta levegő. Nyugodt otthon.
-            </p>
-            <h1 className="mt-4 text-[40px] leading-[1.05] font-semibold tracking-[-0.04em] text-ink sm:text-[52px] lg:text-[56px]">
-              Szúnyogháló, ami akkor van ott, amikor szükséged van rá.
-            </h1>
-            <p className="mt-5 max-w-[400px] text-[16px] leading-relaxed text-mute md:text-[17px]">
-              Egyedi méretre gyártott pliszé szúnyoghálók ajtókra és ablakokra.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ButtonLink
-                to="/konfigurator"
-                onClick={() => startFresh()}
-                className="w-full !rounded-full px-6 sm:w-auto"
-              >
-                Kiszámolom az árat
-                <ArrowRight size={16} strokeWidth={1.8} />
-              </ButtonLink>
-              <ButtonLink
-                to="#hogyan-mukodik"
-                variant="secondary"
-                className="w-full !rounded-full px-6 sm:w-auto"
-              >
-                Hogyan működik?
-              </ButtonLink>
-            </div>
-          </div>
-        </div>
+    <section className="relative min-h-[86vh] overflow-hidden bg-ink">
+      <img
+        src={photos.hero}
+        alt="Luxus teraszajtó pliszé szúnyoghálóval"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/15" />
 
-        <div className="relative z-[1] h-[46vh] min-h-[300px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:left-[44%] lg:h-auto lg:min-h-0">
-          <PleatedPreview
-            photo={photos.demo}
-            coverage={coverage}
-            onCoverageChange={onCoverageChange}
-            interactive
-            showFrame={false}
-            inset={{ top: 10, right: 4, bottom: 14, left: 6 }}
-            alt="Húzd el a pliszé szúnyoghálót a teraszajtón"
-            className="hero-bleed h-full w-full"
-          />
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[22%] bg-gradient-to-r from-white from-10% via-white/55 to-transparent lg:w-[30%]" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-white to-transparent lg:hidden" />
-          {hint && (
-            <p className="pointer-events-none absolute bottom-5 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/92 px-4 py-2 text-[13px] font-medium text-ink shadow-[0_6px_20px_rgba(0,0,0,0.12)]">
-              Húzd el a szúnyoghálót
-            </p>
-          )}
+      <div className="relative z-10 mx-auto flex min-h-[86vh] max-w-[1280px] flex-col justify-end px-5 pt-24 pb-12 md:px-8 md:pb-16">
+        <p className="text-[12px] font-semibold tracking-[0.2em] text-gold uppercase">
+          Pliszé · egyedi méretre
+        </p>
+        <h1 className="display mt-4 max-w-[820px] text-[44px] text-white sm:text-[64px] lg:text-[80px]">
+          Maradandó <strong>nyugalom</strong>
+        </h1>
+        <p className="mt-5 max-w-[480px] text-[16px] leading-relaxed font-light text-white/85 md:text-[18px]">
+          Egyedi méretre gyártott pliszé szúnyoghálók ajtókra és ablakokra. Prémium alumínium, hosszú távra.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <ButtonLink to="/konfigurator" onClick={() => startFresh()}>
+            Árkalkuláció
+            <ArrowRight size={16} strokeWidth={2.4} />
+          </ButtonLink>
+          <ButtonLink to="#hogyan-mukodik" variant="ghost">
+            <MapPin size={14} strokeWidth={2.2} />
+            Hogyan működik?
+          </ButtonLink>
+        </div>
+        <div className="mt-10 flex flex-wrap gap-2">
+          {trust.map(({ Icon, label }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-2 rounded-full bg-black/45 px-4 py-2 text-[12px] font-medium text-white backdrop-blur-md"
+            >
+              <Icon size={14} className="text-gold" strokeWidth={2} />
+              {label}
+            </span>
+          ))}
         </div>
       </div>
-      <BenefitGrid />
     </section>
   );
 }
