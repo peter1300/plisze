@@ -19,8 +19,8 @@ export function Hero() {
   return (
     <section className="overflow-x-hidden bg-white">
       <div className="relative">
-        <div className="relative z-[1] mx-auto max-w-[1120px] px-5 pt-10 pb-8 md:px-8 md:pt-16 lg:min-h-[560px] lg:pt-20 lg:pb-12">
-          <div className="max-w-[520px]">
+        <div className="pointer-events-none relative z-[2] mx-auto max-w-[1120px] px-5 pt-10 pb-8 md:px-8 md:pt-16 lg:min-h-[560px] lg:pt-20 lg:pb-12">
+          <div className="pointer-events-auto max-w-[520px]">
             <p className="text-[12px] font-medium tracking-[0.16em] text-mute uppercase">
               Tiszta levegő. Nyugodt otthon.
             </p>
@@ -50,7 +50,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative h-[46vh] min-h-[300px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:left-[44%] lg:h-auto lg:min-h-0">
+        <div className="relative z-[1] h-[46vh] min-h-[300px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:left-[44%] lg:h-auto lg:min-h-0">
           <PleatedPreview
             photo={photos.demo}
             coverage={coverage}
