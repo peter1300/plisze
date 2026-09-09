@@ -51,22 +51,22 @@ export function Footer() {
           <p className="text-[12px] font-medium tracking-[0.12em] text-mute uppercase">Navigáció</p>
           <ul className="mt-4 space-y-2.5 text-[14px]">
             <li>
-              <a href="/#termekek" className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#termekek`} className="hover:text-mute">
                 Pliszé szúnyoghálók
               </a>
             </li>
             <li>
-              <a href="/#hogyan-merjek" className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#hogyan-merjek`} className="hover:text-mute">
                 Hogyan mérjek?
               </a>
             </li>
             <li>
-              <a href="/#szinek" className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#szinek`} className="hover:text-mute">
                 Színek
               </a>
             </li>
             <li>
-              <a href="/#gyik" className="hover:text-mute">
+              <a href={`${import.meta.env.BASE_URL}#gyik`} className="hover:text-mute">
                 GYIK
               </a>
             </li>

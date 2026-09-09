@@ -6,9 +6,11 @@ import { ConfiguratorPage } from "./pages/ConfiguratorPage";
 import { HomePage } from "./pages/HomePage";
 import { AszfPage, ContactPage, PrivacyPage, ShippingPage } from "./pages/LegalPages";
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />

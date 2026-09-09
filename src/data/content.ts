@@ -1,17 +1,19 @@
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const photos = {
-  hero: "/photos/hero-terrace.png",
-  whyOpen: "/photos/why-open.png",
-  whyMid: "/photos/why-mid.png",
-  whyWide: "/photos/why-wide.png",
-  whyQuality: "/photos/why-quality.png",
-  mesh: "/photos/mesh-macro.png",
-  interior: "/photos/interior-dining.png",
-  galleryDusk: "/photos/gallery-dusk.png",
-  galleryWhite: "/photos/gallery-white.png",
-  galleryWindow: "/photos/gallery-window.png",
-  demo: "/photos/demo-doors.png",
-  measure: "/photos/measure-door.png",
-  consultant: "/photos/consultant.png",
+  hero: asset("photos/hero-terrace.png"),
+  whyOpen: asset("photos/why-open.png"),
+  whyMid: asset("photos/why-mid.png"),
+  whyWide: asset("photos/why-wide.png"),
+  whyQuality: asset("photos/why-quality.png"),
+  mesh: asset("photos/mesh-macro.png"),
+  interior: asset("photos/interior-dining.png"),
+  galleryDusk: asset("photos/gallery-dusk.png"),
+  galleryWhite: asset("photos/gallery-white.png"),
+  galleryWindow: asset("photos/gallery-window.png"),
+  demo: asset("photos/demo-doors.png"),
+  measure: asset("photos/measure-door.png"),
+  consultant: asset("photos/consultant.png"),
 } as const;
 
 export const benefits = [

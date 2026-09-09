@@ -8,10 +8,10 @@ import { Logo } from "./Logo";
 import { ButtonLink } from "./ui/Button";
 
 const links = [
-  { to: "/#termekek", label: "Pliszé szúnyoghálók" },
-  { to: "/#hogyan-merjek", label: "Hogyan mérjek?" },
-  { to: "/#szinek", label: "Színek" },
-  { to: "/#gyik", label: "GYIK" },
+  { to: `${import.meta.env.BASE_URL}#termekek`, label: "Pliszé szúnyoghálók" },
+  { to: `${import.meta.env.BASE_URL}#hogyan-merjek`, label: "Hogyan mérjek?" },
+  { to: `${import.meta.env.BASE_URL}#szinek`, label: "Színek" },
+  { to: `${import.meta.env.BASE_URL}#gyik`, label: "GYIK" },
 ];
 
 export function Header() {
